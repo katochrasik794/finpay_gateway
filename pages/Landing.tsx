@@ -112,52 +112,52 @@ const Landing: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 h-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 cursor-pointer">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-              <ShieldCheck className="text-white" size={24} />
+      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 h-14 sm:h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 h-full flex items-center justify-between gap-2 sm:gap-4">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-1 sm:gap-2 cursor-pointer min-w-0 flex-shrink">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 flex-shrink-0">
+              <ShieldCheck className="text-white sm:w-5 sm:h-5 md:w-6 md:h-6" size={18} />
             </div>
-            <span className="text-2xl font-bold tracking-tight uppercase">METACRM</span>
+            <span className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold tracking-tight uppercase truncate">METACRM</span>
           </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollTo('how-it-works')} className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">Process</button>
-            <button onClick={() => scrollTo('features')} className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">Features</button>
-            <button onClick={() => scrollTo('api-demo')} className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">API Demo</button>
-            <button onClick={() => scrollTo('pricing')} className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">Pricing</button>
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <button onClick={() => scrollTo('how-it-works')} className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors whitespace-nowrap">Process</button>
+            <button onClick={() => scrollTo('features')} className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors whitespace-nowrap">Features</button>
+            <button onClick={() => scrollTo('api-demo')} className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors whitespace-nowrap">API Demo</button>
+            <button onClick={() => scrollTo('pricing')} className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors whitespace-nowrap">Pricing</button>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-4 flex-shrink-0">
             <button 
               onClick={toggleTheme}
-              className="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+              className="p-1.5 sm:p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors flex-shrink-0"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} className="text-yellow-400" />}
+              {theme === 'light' ? <Moon size={16} className="sm:w-5 sm:h-5" /> : <Sun size={16} className="sm:w-5 sm:h-5 text-yellow-400" />}
             </button>
-            <button onClick={() => navigate('/login')} className="px-5 py-2.5 rounded-xl font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Login</button>
-            <button onClick={() => navigate('/register')} className="px-5 py-2.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-dark shadow-xl shadow-primary/20 transition-all">Get Started</button>
+            <button onClick={() => navigate('/login')} className="px-2 sm:px-3 md:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap">Login</button>
+            <button onClick={() => navigate('/register')} className="px-2 sm:px-3 md:px-5 py-1.5 sm:py-2 md:py-2.5 bg-primary text-white rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm hover:bg-primary-dark shadow-xl shadow-primary/20 transition-all whitespace-nowrap">Get Started</button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-24 px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 overflow-hidden">
+      <section className="pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 px-3 sm:px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-8 animate-fade-in">
-            <Zap size={16} /> Fast, Secure, Enterprise Crypto Gateway
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 text-primary font-bold text-[10px] sm:text-xs md:text-sm mb-4 sm:mb-6 md:mb-8 animate-fade-in">
+            <Zap size={12} className="sm:w-4 sm:h-4" /> <span className="whitespace-nowrap">Fast, Secure, Enterprise Crypto Gateway</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[1.05] tracking-tight">
-            The Future of <br />
-            <span className="text-primary">Crypto Settlement</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-black mb-4 sm:mb-6 md:mb-8 leading-[1.1] sm:leading-[1.05] tracking-tight px-2">
+            The Future of <br className="hidden sm:block" />
+            <span className="text-primary break-words">Crypto Settlement</span>
           </h1>
-          <p className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-12 font-medium leading-relaxed px-2 break-words">
             Accept USDT across all major chains. Zero-custody, instant reconciliation, and institutional-grade security for high-volume merchants.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button onClick={() => navigate('/register')} className="w-full sm:w-auto px-12 py-6 bg-primary text-white text-xl font-bold rounded-2xl hover:bg-primary-dark transition-all shadow-2xl shadow-primary/30 transform hover:-translate-y-1">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 px-2">
+            <button onClick={() => navigate('/register')} className="w-full sm:w-auto px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 bg-primary text-white text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-xl sm:rounded-2xl hover:bg-primary-dark transition-all shadow-2xl shadow-primary/30 transform hover:-translate-y-1 whitespace-nowrap">
               Start Accepting Now
             </button>
-            <button onClick={() => scrollTo('how-it-works')} className="w-full sm:w-auto px-12 py-6 bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-xl font-bold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3">
+            <button onClick={() => scrollTo('how-it-works')} className="w-full sm:w-auto px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-xl sm:rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-2 sm:gap-3 whitespace-nowrap">
               Explore Process
             </button>
           </div>
@@ -165,14 +165,14 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Trust Bar */}
-      <div className="py-12 border-y border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4">
-           <p className="text-center text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-10">Supporting Global Networks</p>
-           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+      <div className="py-6 sm:py-8 md:py-12 border-y border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4">
+           <p className="text-center text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 sm:mb-8 md:mb-10">Supporting Global Networks</p>
+           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
               {['Ethereum', 'Tron', 'Binance', 'Solana', 'Polygon'].map((name) => (
-                <div key={name} className="flex items-center gap-2">
-                  <Globe className="text-primary" size={24} />
-                  <span className="text-xl font-bold tracking-tight">{name}</span>
+                <div key={name} className="flex items-center gap-1.5 sm:gap-2">
+                  <Globe className="text-primary sm:w-5 sm:h-5 md:w-6 md:h-6" size={18} />
+                  <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold tracking-tight whitespace-nowrap">{name}</span>
                 </div>
               ))}
            </div>
@@ -180,26 +180,26 @@ const Landing: React.FC = () => {
       </div>
 
       {/* How it Works Section */}
-      <section id="how-it-works" className="py-32 px-4 scroll-mt-20">
+      <section id="how-it-works" className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">How it Works</h2>
-            <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-medium text-lg">Integrate once, settle globally. Our process is designed for seamless operation.</p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6 tracking-tight break-words">How it Works</h2>
+            <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-medium text-xs sm:text-sm md:text-base lg:text-lg break-words px-2">Integrate once, settle globally. Our process is designed for seamless operation.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-12 relative">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 relative">
             <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 dark:bg-slate-800 -translate-y-1/2 hidden md:block"></div>
             {[
               { step: "01", title: "Generate Invoice", desc: "Use our API or Merchant Portal to create a secure payment link or QR code for your customer.", icon: <Code /> },
               { step: "02", title: "Customer Pays", desc: "Customer sends USDT on their preferred chain. Our nodes detect and validate the TX in seconds.", icon: <Smartphone /> },
               { step: "03", title: "Instant Settlement", desc: "Funds are automatically bridged to your master wallet or bank-grade custody account.", icon: <Zap /> }
             ].map((s, i) => (
-              <div key={i} className="relative z-10 bg-white dark:bg-slate-950 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center group">
-                <div className="w-20 h-20 bg-primary/10 text-primary rounded-[2rem] flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl shadow-primary/5">
-                   {React.cloneElement(s.icon as React.ReactElement<any>, { size: 36 })}
+              <div key={i} className="relative z-10 bg-white dark:bg-slate-950 p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl md:rounded-[2.5rem] border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center group">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary/10 text-primary rounded-xl sm:rounded-2xl md:rounded-[2rem] flex items-center justify-center mb-4 sm:mb-6 md:mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl shadow-primary/5">
+                   {React.cloneElement(s.icon as React.ReactElement<any>, { size: 24 })}
                 </div>
-                <span className="text-primary font-black text-xs uppercase tracking-widest mb-4">Step {s.step}</span>
-                <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{s.desc}</p>
+                <span className="text-primary font-black text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3 md:mb-4">Step {s.step}</span>
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 break-words">{s.title}</h3>
+                <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed text-xs sm:text-sm md:text-base break-words">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -207,16 +207,16 @@ const Landing: React.FC = () => {
       </section>
 
       {/* API DEMO SECTION */}
-      <section id="api-demo" className="py-32 px-4 bg-slate-50 dark:bg-slate-900/30 scroll-mt-20 overflow-hidden">
+      <section id="api-demo" className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 bg-slate-50 dark:bg-slate-900/30 scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Developer Playroom</h2>
-            <p className="text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Test the power of our REST API in real-time. Experience lightning-fast responses from our global node cluster.</p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6 tracking-tight break-words px-2">Developer Playroom</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto break-words px-2">Test the power of our REST API in real-time. Experience lightning-fast responses from our global node cluster.</p>
           </div>
 
-          <div className="bg-slate-900 rounded-[3rem] shadow-2xl border border-white/5 overflow-hidden flex flex-col xl:flex-row">
+          <div className="bg-slate-900 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl border border-white/5 overflow-hidden flex flex-col xl:flex-row">
             {/* Sidebar / Tabs */}
-            <div className="xl:w-64 border-b xl:border-b-0 xl:border-r border-white/5 p-8 flex flex-row xl:flex-col gap-4 overflow-x-auto">
+            <div className="xl:w-64 border-b xl:border-b-0 xl:border-r border-white/5 p-3 sm:p-4 md:p-6 lg:p-8 flex flex-row xl:flex-col gap-2 sm:gap-3 md:gap-4 overflow-x-auto">
               {[
                 { id: 'invoice', label: 'Create Invoice', method: 'POST' },
                 { id: 'balance', label: 'Get Balances', method: 'GET' },
@@ -228,14 +228,14 @@ const Landing: React.FC = () => {
                     setApiDemoEndpoint(tab.id as any);
                     setApiResponse(null);
                   }}
-                  className={`flex-1 xl:flex-none p-4 rounded-2xl text-left transition-all group ${
+                  className={`flex-1 xl:flex-none p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl md:rounded-2xl text-left transition-all group min-w-[120px] sm:min-w-0 ${
                     apiDemoEndpoint === tab.id 
                     ? 'bg-primary text-white shadow-lg shadow-primary/20' 
                     : 'text-slate-400 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">{tab.method}</p>
-                  <p className="text-sm font-bold">{tab.label}</p>
+                  <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest opacity-60 mb-0.5 sm:mb-1">{tab.method}</p>
+                  <p className="text-xs sm:text-sm font-bold truncate">{tab.label}</p>
                 </button>
               ))}
               <div className="hidden xl:block mt-auto pt-8 border-t border-white/5">
@@ -248,16 +248,16 @@ const Landing: React.FC = () => {
             </div>
 
             {/* Main Area */}
-            <div className="flex-1 p-8 md:p-12 flex flex-col lg:flex-row gap-12">
+            <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col lg:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12">
                {/* Request Pane */}
-               <div className="flex-1 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] flex items-center gap-2">
-                      <Terminal size={14} className="text-primary" /> Request Body
+               <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-6 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.2em] flex items-center gap-1.5 sm:gap-2 truncate">
+                      <Terminal size={12} className="sm:w-3.5 sm:h-3.5 text-primary shrink-0" /> <span className="truncate">Request Body</span>
                     </h4>
-                    <span className="text-xs font-bold text-slate-600">application/json</span>
+                    <span className="text-[10px] sm:text-xs font-bold text-slate-600 whitespace-nowrap shrink-0">application/json</span>
                   </div>
-                  <div className="bg-black/40 rounded-3xl p-8 border border-white/5 font-mono text-sm min-h-[300px] shadow-inner">
+                  <div className="bg-black/40 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/5 font-mono text-[10px] sm:text-xs md:text-sm min-h-[200px] sm:min-h-[250px] md:min-h-[300px] shadow-inner overflow-x-auto">
                     {apiDemoEndpoint === 'invoice' && (
                       <pre className="text-emerald-400">
 {`{
@@ -293,27 +293,27 @@ const Landing: React.FC = () => {
                   <button 
                     onClick={runApiDemo}
                     disabled={isApiLoading}
-                    className="w-full py-5 bg-primary text-white text-lg font-black rounded-2xl hover:bg-primary-dark transition-all flex items-center justify-center gap-3 shadow-2xl shadow-primary/30 disabled:opacity-50"
+                    className="w-full py-3 sm:py-4 md:py-5 bg-primary text-white text-xs sm:text-sm md:text-base lg:text-lg font-black rounded-xl sm:rounded-2xl hover:bg-primary-dark transition-all flex items-center justify-center gap-2 sm:gap-3 shadow-2xl shadow-primary/30 disabled:opacity-50"
                   >
                     {isApiLoading ? (
-                       <RefreshCw className="animate-spin" size={20} />
+                       <RefreshCw className="animate-spin" size={16} className="sm:w-5 sm:h-5" />
                     ) : (
-                       <><Play size={20} fill="currentColor" /> Run Request</>
+                       <><Play size={16} className="sm:w-5 sm:h-5" fill="currentColor" /> <span className="whitespace-nowrap">Run Request</span></>
                     )}
                   </button>
                </div>
 
                {/* Response Pane */}
-               <div className="flex-1 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] flex items-center gap-2">
-                      <Database size={14} className="text-primary" /> Live Response
+               <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-6 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-[0.2em] flex items-center gap-1.5 sm:gap-2 truncate">
+                      <Database size={12} className="sm:w-3.5 sm:h-3.5 text-primary shrink-0" /> <span className="truncate">Live Response</span>
                     </h4>
-                    <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded ${apiResponse ? 'bg-green-500/10 text-green-500' : 'bg-slate-700 text-slate-500'}`}>
+                    <span className={`text-[9px] sm:text-[10px] font-black uppercase px-1.5 sm:px-2 py-0.5 rounded whitespace-nowrap shrink-0 ${apiResponse ? 'bg-green-500/10 text-green-500' : 'bg-slate-700 text-slate-500'}`}>
                       {apiResponse ? '200 OK' : 'Waiting...'}
                     </span>
                   </div>
-                  <div className="bg-black/60 rounded-3xl p-8 border border-white/5 font-mono text-sm min-h-[300px] shadow-inner relative group overflow-auto custom-scrollbar">
+                  <div className="bg-black/60 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/5 font-mono text-[10px] sm:text-xs md:text-sm min-h-[200px] sm:min-h-[250px] md:min-h-[300px] shadow-inner relative group overflow-auto custom-scrollbar">
                     {!apiResponse && !isApiLoading && (
                       <div className="absolute inset-0 flex items-center justify-center text-slate-700 font-bold opacity-30">
                         CLICK RUN TO FETCH DATA
@@ -341,9 +341,9 @@ const Landing: React.FC = () => {
                       </button>
                     )}
                   </div>
-                  <div className="pt-4 flex items-center gap-2 text-xs font-bold text-slate-600">
-                    <ShieldCheck size={14} className="text-primary" />
-                    ENCRYPTED WITH AES-256-GCM PRODUCTION NODE L-12
+                  <div className="pt-2 sm:pt-4 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-slate-600 flex-wrap">
+                    <ShieldCheck size={12} className="sm:w-3.5 sm:h-3.5 text-primary shrink-0" />
+                    <span className="break-words">ENCRYPTED WITH AES-256-GCM PRODUCTION NODE L-12</span>
                   </div>
                </div>
             </div>
@@ -352,12 +352,12 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Security Deep Dive */}
-      <section className="py-32 px-4 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[150px]"></div>
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
-           <div className="flex-1 space-y-8">
-              <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">Bank-Grade Infrastructure</h2>
-              <p className="text-slate-400 text-xl font-medium leading-relaxed">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
+           <div className="flex-1 space-y-4 sm:space-y-6 md:space-y-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight break-words">Bank-Grade Infrastructure</h2>
+              <p className="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed break-words">
                 We don't just process payments; we protect your enterprise. Our zero-custody model ensures you remain in control of your private keys while we handle the network complexity.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -407,63 +407,63 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-32 px-4 scroll-mt-20 dark:bg-slate-950">
+      <section id="pricing" className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Enterprise Pricing</h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 font-medium">Transparent activation costs with 50% annual renewal discounts.</p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6 tracking-tight break-words px-2">Enterprise Pricing</h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-slate-600 dark:text-slate-400 font-medium break-words px-2">Transparent activation costs with 50% annual renewal discounts.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {pricingTiers.map((tier, i) => (
-              <div key={i} className={`relative flex flex-col p-12 rounded-[3.5rem] border transition-all duration-500 ${
+              <div key={i} className={`relative flex flex-col p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[3.5rem] border transition-all duration-500 ${
                 tier.popular 
-                ? 'bg-slate-900 dark:bg-slate-900 border-primary shadow-2xl shadow-primary/20 scale-105 z-10' 
+                ? 'bg-slate-900 dark:bg-slate-900 border-primary shadow-2xl shadow-primary/20 md:scale-105 z-10' 
                 : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 shadow-sm'
               }`}>
                 {tier.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-2.5 bg-primary text-white font-black text-xs uppercase tracking-widest rounded-full shadow-lg">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-2.5 bg-primary text-white font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full shadow-lg whitespace-nowrap">
                     Best Value
                   </div>
                 )}
                 
-                <div className="mb-8">
-                  <h3 className={`text-2xl font-black mb-4 ${tier.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{tier.name}</h3>
+                <div className="mb-4 sm:mb-6 md:mb-8">
+                  <h3 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-black mb-2 sm:mb-3 md:mb-4 break-words ${tier.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{tier.name}</h3>
                   <div className="flex items-baseline gap-1">
-                    <span className={`text-6xl font-black text-primary`}>{tier.fee}</span>
+                    <span className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-primary break-words`}>{tier.fee}</span>
                   </div>
-                  <p className={`text-sm font-bold mt-2 ${tier.popular ? 'text-slate-400' : 'text-slate-500'}`}>per transaction</p>
+                  <p className={`text-xs sm:text-sm font-bold mt-1 sm:mt-2 ${tier.popular ? 'text-slate-400' : 'text-slate-500'}`}>per transaction</p>
                 </div>
 
-                <div className={`space-y-5 mb-10 pb-8 border-b ${tier.popular ? 'border-white/10' : 'border-slate-100'}`}>
+                <div className={`space-y-3 sm:space-y-4 md:space-y-5 mb-6 sm:mb-8 md:mb-10 pb-4 sm:pb-6 md:pb-8 border-b ${tier.popular ? 'border-white/10' : 'border-slate-100'}`}>
                   <div className="flex flex-col gap-1">
                     <span className={tier.popular ? 'text-slate-500 text-[10px]' : 'text-slate-400 text-[10px]'}>Activation Fee</span>
-                    <span className={`text-3xl font-black ${tier.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{tier.activation} USD</span>
+                    <span className={`text-xl sm:text-2xl md:text-3xl font-black break-words ${tier.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{tier.activation} USD</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className={tier.popular ? 'text-slate-400' : 'text-slate-500'}>Settlement Time</span>
-                    <span className={`font-black flex items-center gap-1.5 ${tier.popular ? 'text-primary' : 'text-primary'}`}>
-                      <Clock size={16} /> {tier.settlement}
+                  <div className="flex items-center justify-between text-xs sm:text-sm">
+                    <span className={tier.popular ? 'text-slate-400' : 'text-slate-500'}>{tier.popular ? 'Settlement Time' : 'Settlement'}</span>
+                    <span className={`font-black flex items-center gap-1.5 text-primary truncate ${tier.popular ? 'text-primary' : 'text-primary'}`}>
+                      <Clock size={14} className="sm:w-4 sm:h-4 shrink-0" /> <span className="truncate">{tier.settlement}</span>
                     </span>
                   </div>
-                  <div className="flex items-center justify-between text-xs font-black text-primary bg-primary/5 p-3 rounded-xl border border-primary/10">
-                    <span>Renewal Discount</span>
-                    <span>50% OFF</span>
+                  <div className="flex items-center justify-between text-[10px] sm:text-xs font-black text-primary bg-primary/5 p-2 sm:p-3 rounded-lg sm:rounded-xl border border-primary/10">
+                    <span className="truncate">Renewal Discount</span>
+                    <span className="whitespace-nowrap">50% OFF</span>
                   </div>
                 </div>
 
-                <div className="space-y-4 flex-1 mb-10">
+                <div className="space-y-2 sm:space-y-3 md:space-y-4 flex-1 mb-6 sm:mb-8 md:mb-10">
                   {tier.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 size={20} className="text-primary mt-0.5 shrink-0" />
-                      <span className={`text-sm font-bold ${tier.popular ? 'text-slate-300' : 'text-slate-700 dark:text-slate-400'}`}>{feature}</span>
+                    <div key={idx} className="flex items-start gap-2 sm:gap-3">
+                      <CheckCircle2 size={16} className="sm:w-5 sm:h-5 text-primary mt-0.5 shrink-0" />
+                      <span className={`text-xs sm:text-sm font-bold break-words ${tier.popular ? 'text-slate-300' : 'text-slate-700 dark:text-slate-400'}`}>{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <button 
                   onClick={() => navigate('/register')}
-                  className={`w-full py-5 rounded-[2rem] font-black text-lg transition-all ${
+                  className={`w-full py-3 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl md:rounded-[2rem] font-black text-xs sm:text-sm md:text-base lg:text-lg transition-all ${
                     tier.popular 
                     ? 'bg-primary text-white hover:bg-primary-dark shadow-xl shadow-primary/30' 
                     : 'bg-slate-900 dark:bg-white dark:text-slate-900 text-white hover:opacity-90 shadow-xl'
@@ -478,10 +478,10 @@ const Landing: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-32 px-4 bg-slate-50 dark:bg-slate-900/50 scroll-mt-20">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 bg-slate-50 dark:bg-slate-900/50 scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black mb-6">Common Questions</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 break-words px-2">Common Questions</h2>
             <p className="text-slate-500 font-medium">Everything you need to know about the METACRM Gateway.</p>
           </div>
           <div className="space-y-6">
@@ -503,69 +503,69 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-32 px-4 scroll-mt-20">
-        <div className="max-w-6xl mx-auto bg-white dark:bg-slate-900 rounded-[3.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col lg:flex-row">
-           <div className="lg:w-2/5 bg-slate-900 text-white p-12 lg:p-16 relative">
+      <section id="contact" className="py-16 sm:py-24 md:py-32 px-3 sm:px-4 scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20">
+        <div className="max-w-6xl mx-auto bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-[3.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+           <div className="lg:w-2/5 bg-slate-900 text-white p-6 sm:p-8 md:p-12 lg:p-16 relative">
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 blur-[100px] -ml-20 -mb-20"></div>
-              <h2 className="text-4xl font-black mb-8">Let's Talk Enterprise</h2>
-              <p className="text-slate-400 font-medium mb-12 text-lg">Have custom volume requirements or need a tailored integration? Our experts are here to help.</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 md:mb-8 break-words px-2">Let's Talk Enterprise</h2>
+              <p className="text-slate-400 font-medium mb-6 sm:mb-8 md:mb-12 text-xs sm:text-sm md:text-base lg:text-lg break-words">Have custom volume requirements or need a tailored integration? Our experts are here to help.</p>
               
-              <div className="space-y-8">
-                 <div className="flex items-center gap-5">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary">
-                       <Mail size={24} />
+              <div className="space-y-4 sm:space-y-6 md:space-y-8">
+                 <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/5 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary shrink-0">
+                       <Mail size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </div>
-                    <div>
-                       <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Email Us</p>
-                       <p className="text-lg font-bold">admin@metacrm.shop</p>
-                    </div>
-                 </div>
-                 <div className="flex items-center gap-5">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary">
-                       <MessageCircle size={24} />
-                    </div>
-                    <div>
-                       <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Telegram</p>
-                       <p className="text-lg font-bold">@METACRM_Support</p>
+                    <div className="min-w-0">
+                       <p className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-widest">Email Us</p>
+                       <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold truncate break-all">admin@metacrm.shop</p>
                     </div>
                  </div>
-                 <div className="flex items-center gap-5">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary">
-                       <MapPin size={24} />
+                 <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/5 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary shrink-0">
+                       <MessageCircle size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </div>
-                    <div>
-                       <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Global HQ</p>
-                       <p className="text-lg font-bold">Singapore Financial Hub</p>
+                    <div className="min-w-0">
+                       <p className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-widest">Telegram</p>
+                       <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold truncate">@METACRM_Support</p>
+                    </div>
+                 </div>
+                 <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/5 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary shrink-0">
+                       <MapPin size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                    </div>
+                    <div className="min-w-0">
+                       <p className="text-[10px] sm:text-xs font-black text-slate-500 uppercase tracking-widest">Global HQ</p>
+                       <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold break-words">Singapore Financial Hub</p>
                     </div>
                  </div>
               </div>
            </div>
            
-           <div className="lg:w-3/5 p-12 lg:p-16">
+           <div className="lg:w-3/5 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16">
               {contactStatus === 'sent' ? (
                 <div className="h-full flex flex-col items-center justify-center text-center animate-fade-in">
                    <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
                       <CheckCircle2 size={40} />
                    </div>
-                   <h3 className="text-2xl font-black mb-2">Message Received</h3>
+                   <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-2 break-words">Message Received</h3>
                    <p className="text-slate-500 font-medium">Our account managers will reach out within the next 2 hours.</p>
                    <button onClick={() => setContactStatus('idle')} className="mt-8 text-primary font-bold hover:underline">Send another message</button>
                 </div>
               ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <form onSubmit={handleContactSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                      <div className="space-y-2">
                         <label className="text-xs font-black text-slate-400 uppercase tracking-widest px-1">Full Name</label>
-                        <input required type="text" placeholder="John Doe" className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all" />
+                        <input required type="text" placeholder="John Doe" className="w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl sm:rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all text-xs sm:text-sm md:text-base" />
                      </div>
                      <div className="space-y-2">
-                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest px-1">Company Email</label>
-                        <input required type="email" placeholder="john@company.com" className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all" />
+                        <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest px-1">Company Email</label>
+                        <input required type="email" placeholder="john@company.com" className="w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl sm:rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all text-xs sm:text-sm md:text-base" />
                      </div>
                   </div>
                   <div className="space-y-2">
-                     <label className="text-xs font-black text-slate-400 uppercase tracking-widest px-1">Interest Tier</label>
-                     <select className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all appearance-none cursor-pointer">
+                     <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest px-1">Interest Tier</label>
+                     <select className="w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl sm:rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all appearance-none cursor-pointer text-xs sm:text-sm md:text-base">
                         <option>Starter Node ($1,500)</option>
                         <option>Growth Hub ($3,000)</option>
                         <option>Elite Enterprise ($6,000)</option>
@@ -573,15 +573,15 @@ const Landing: React.FC = () => {
                      </select>
                   </div>
                   <div className="space-y-2">
-                     <label className="text-xs font-black text-slate-400 uppercase tracking-widest px-1">How can we help?</label>
-                     <textarea required rows={4} placeholder="Tell us about your volume and integration needs..." className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all resize-none"></textarea>
+                     <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest px-1">How can we help?</label>
+                     <textarea required rows={4} placeholder="Tell us about your volume and integration needs..." className="w-full px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl sm:rounded-2xl outline-none focus:ring-2 focus:ring-primary dark:text-white transition-all resize-none text-xs sm:text-sm md:text-base"></textarea>
                   </div>
                   <button 
                     disabled={contactStatus === 'sending'}
                     type="submit" 
-                    className="w-full py-5 bg-primary text-white font-black rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 disabled:opacity-50"
+                    className="w-full py-3 sm:py-4 md:py-5 bg-primary text-white font-black rounded-xl sm:rounded-2xl hover:bg-primary-dark transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2 sm:gap-3 disabled:opacity-50 text-xs sm:text-sm md:text-base"
                   >
-                    {contactStatus === 'sending' ? 'Sending Request...' : <><Send size={20} /> Send Inquiry</>}
+                    {contactStatus === 'sending' ? 'Sending Request...' : <><Send size={16} className="sm:w-5 sm:h-5" /> <span className="whitespace-nowrap">Send Inquiry</span></>}
                   </button>
                 </form>
               )}
@@ -602,46 +602,46 @@ const Landing: React.FC = () => {
             <p className="text-slate-500 dark:text-slate-400 text-base font-medium leading-relaxed mb-8">
               Professional crypto payment infrastructure for high-growth enterprises. Accept tokens, manage wallets, and settle in fiat or stablecoins.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-2 sm:gap-3 md:gap-4">
                {['Twitter', 'Telegram', 'Github', 'LinkedIn'].map(social => (
-                  <button key={social} className="w-10 h-10 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary transition-colors border border-slate-100 dark:border-slate-700">
-                     <Globe size={18} />
+                  <button key={social} className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary transition-colors border border-slate-100 dark:border-slate-700 shrink-0">
+                     <Globe size={14} className="sm:w-4 sm:h-4 md:w-[18px] md:h-[18px]" />
                   </button>
                ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 md:gap-24">
-             <div className="space-y-6">
-                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-widest text-primary">Gateway</h4>
-                <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-bold">
-                   <li><button onClick={() => scrollTo('how-it-works')} className="hover:text-primary transition-colors">Process</button></li>
-                   <li><button onClick={() => scrollTo('features')} className="hover:text-primary transition-colors">Features</button></li>
-                   <li><button onClick={() => scrollTo('pricing')} className="hover:text-primary transition-colors">Pricing</button></li>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-24 w-full md:w-auto">
+             <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-[10px] sm:text-xs tracking-widest text-primary">Gateway</h4>
+                <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold">
+                   <li><button onClick={() => scrollTo('how-it-works')} className="hover:text-primary transition-colors break-words text-left">Process</button></li>
+                   <li><button onClick={() => scrollTo('features')} className="hover:text-primary transition-colors break-words text-left">Features</button></li>
+                   <li><button onClick={() => scrollTo('pricing')} className="hover:text-primary transition-colors break-words text-left">Pricing</button></li>
                 </ul>
              </div>
-             <div className="space-y-6">
-                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-widest text-primary">Developer</h4>
-                <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-bold">
-                   <li><Link to="/docs" className="hover:text-primary transition-colors">API Docs</Link></li>
-                   <li><Link to="/developers" className="hover:text-primary transition-colors">SDKs</Link></li>
-                   <li><Link to="/support" className="hover:text-primary transition-colors">Status</Link></li>
+             <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-[10px] sm:text-xs tracking-widest text-primary">Developer</h4>
+                <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold">
+                   <li><Link to="/docs" className="hover:text-primary transition-colors break-words">API Docs</Link></li>
+                   <li><Link to="/developers" className="hover:text-primary transition-colors break-words">SDKs</Link></li>
+                   <li><Link to="/support" className="hover:text-primary transition-colors break-words">Status</Link></li>
                 </ul>
              </div>
-             <div className="space-y-6">
-                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-widest text-primary">Company</h4>
-                <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-bold">
-                   <li><Link to="/compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
-                   <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy</Link></li>
-                   <li><Link to="/terms" className="hover:text-primary transition-colors">Terms</Link></li>
+             <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                <h4 className="font-bold text-slate-900 dark:text-white uppercase text-[10px] sm:text-xs tracking-widest text-primary">Company</h4>
+                <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold">
+                   <li><Link to="/compliance" className="hover:text-primary transition-colors break-words">Compliance</Link></li>
+                   <li><Link to="/privacy" className="hover:text-primary transition-colors break-words">Privacy</Link></li>
+                   <li><Link to="/terms" className="hover:text-primary transition-colors break-words">Terms</Link></li>
                 </ul>
              </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
-           <span>© 2024 METACRM Gateway. Registered in Singapore.</span>
-           <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div> Mainnet Live</span>
-              <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div> All Nodes Operational</span>
+        <div className="max-w-7xl mx-auto mt-12 sm:mt-16 md:mt-20 lg:mt-24 pt-4 sm:pt-6 md:pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 md:gap-6 px-3 sm:px-4">
+           <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest text-center sm:text-left break-words">© 2024 METACRM Gateway. Registered in Singapore.</span>
+           <div className="flex items-center gap-3 sm:gap-4 md:gap-6 flex-wrap justify-center sm:justify-end">
+              <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0"></div> <span className="whitespace-nowrap">Mainnet Live</span></span>
+              <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs"><div className="w-1.5 h-1.5 bg-green-500 rounded-full shrink-0"></div> <span className="whitespace-nowrap">All Nodes Operational</span></span>
            </div>
         </div>
       </footer>

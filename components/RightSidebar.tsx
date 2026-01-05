@@ -12,7 +12,7 @@ const RightSidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-80 flex-shrink-0 bg-transparent h-full sticky top-0 hidden xl:flex flex-col p-6 gap-6">
+    <aside className="w-80 flex-shrink-0 bg-transparent h-full sticky top-0 hidden xl:flex flex-col p-4 xl:p-6 gap-4 xl:gap-6">
       {/* My Wallet Card */}
       <div className="bg-primary rounded-[2rem] p-6 text-white shadow-xl shadow-primary/30 relative overflow-hidden group">
         {/* Geometric Pattern Overlay */}
@@ -26,29 +26,29 @@ const RightSidebar: React.FC = () => {
         </div>
         
         <div className="relative z-10">
-          <div className="flex justify-between items-start mb-4">
-            <h3 className="font-bold text-lg">My Wallet</h3>
-            <span className="text-[10px] font-bold opacity-60">UID: 1005859</span>
+          <div className="flex justify-between items-start mb-3">
+            <h3 className="font-bold text-sm sm:text-base">My Wallet</h3>
+            <span className="text-[9px] sm:text-[10px] font-bold opacity-60 truncate">UID: 1005859</span>
           </div>
           
-          <p className="text-xs font-medium opacity-80">Balance</p>
+          <p className="text-[10px] sm:text-xs font-medium opacity-80">Balance</p>
           <div className="flex items-baseline gap-2 mt-1">
-            <h2 className="text-4xl font-black">$32.85</h2>
+            <h2 className="text-2xl sm:text-3xl font-black">$32.85</h2>
           </div>
           
           <div className="flex items-center gap-2 mt-2">
-            <div className="flex items-center gap-1 bg-white/20 px-2 py-0.5 rounded-lg text-[10px] font-bold">
-              <TrendingDown size={10} /> -8.95%
+            <div className="flex items-center gap-1 bg-white/20 px-1.5 sm:px-2 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-bold">
+              <TrendingDown size={9} className="sm:w-[10px] sm:h-[10px]" /> -8.95%
             </div>
-            <span className="text-[10px] font-bold opacity-60">-$3.23</span>
+            <span className="text-[9px] sm:text-[10px] font-bold opacity-60">-$3.23</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mt-8">
-            <button className="flex items-center justify-center gap-2 py-2.5 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-bold transition-all border border-white/10">
-              <ArrowDownCircle size={14} /> Deposit
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-6 sm:mt-8">
+            <button className="flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold transition-all border border-white/10">
+              <ArrowDownCircle size={12} className="sm:w-[14px] sm:h-[14px]" /> Deposit
             </button>
-            <button className="flex items-center justify-center gap-2 py-2.5 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-bold transition-all border border-white/10">
-              <ArrowUpCircle size={14} /> Payment
+            <button className="flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 bg-white/10 hover:bg-white/20 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold transition-all border border-white/10">
+              <ArrowUpCircle size={12} className="sm:w-[14px] sm:h-[14px]" /> Payment
             </button>
           </div>
         </div>
@@ -56,9 +56,9 @@ const RightSidebar: React.FC = () => {
 
       {/* My Portfolio Section */}
       <div className="flex-1 flex flex-col">
-        <h3 className="text-lg font-bold dark:text-white mb-4">My Portfolio</h3>
-        <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-6 flex-1 shadow-sm flex flex-col">
-          <div className="space-y-6 flex-1">
+        <h3 className="text-sm sm:text-base font-bold dark:text-white mb-3 sm:mb-4">My Portfolio</h3>
+        <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-4 sm:p-6 flex-1 shadow-sm flex flex-col">
+          <div className="space-y-4 sm:space-y-6 flex-1">
             {portfolio.map((item, i) => (
               <div key={i} className="flex items-center justify-between group cursor-pointer">
                 <div className="flex items-center gap-3">
@@ -111,23 +111,23 @@ const RightSidebar: React.FC = () => {
                        </div>
                     )}
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
-                      <p className="text-sm font-black dark:text-white leading-none">{item.name}</p>
-                      <span className="text-[10px] text-slate-400 font-medium">{item.full}</span>
+                      <p className="text-xs sm:text-sm font-black dark:text-white leading-none truncate">{item.name}</p>
+                      <span className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate hidden sm:inline">{item.full}</span>
                     </div>
-                    <p className="text-[10px] font-bold text-slate-400 mt-1">{item.rate}</p>
+                    <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 truncate">{item.rate}</p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-black dark:text-white leading-none">{item.balance}</p>
-                  <p className="text-[10px] font-bold text-slate-400 mt-1">{item.value}</p>
+                <div className="text-right shrink-0">
+                  <p className="text-xs sm:text-sm font-black dark:text-white leading-none truncate">{item.balance}</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 truncate">{item.value}</p>
                 </div>
               </div>
             ))}
           </div>
           
-          <button className="w-full mt-8 py-3 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 text-xs font-bold rounded-xl transition-all">
+          <button className="w-full mt-6 sm:mt-8 py-2 sm:py-3 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 text-[10px] sm:text-xs font-bold rounded-lg sm:rounded-xl transition-all">
             See All
           </button>
         </div>

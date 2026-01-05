@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   Wallet, 
@@ -15,10 +15,17 @@ import {
   MessageSquareShare,
   History,
   Repeat,
-  BookOpen
+  BookOpen,
+  X
 } from 'lucide-react';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (open: boolean) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
+  const navigate = useNavigate();
   const sections = [
     {
       title: 'OVERVIEW',
@@ -62,51 +69,112 @@ const Sidebar: React.FC = () => {
   const activeClass = "bg-primary text-white shadow-lg shadow-primary/20";
   const inactiveClass = "text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white";
 
-  return (
-    <aside className="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-screen sticky top-0 flex flex-col hidden lg:flex">
-      <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
-        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-          <ShieldCheck className="text-white" size={20} />
-        </div>
-        <span className="text-xl font-bold tracking-tight dark:text-white uppercase">METACRM</span>
-      </div>
-      
-      {/* Container for links with the new beautiful custom scrollbar */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
-        {sections.map((section, idx) => (
-          <div key={idx}>
-            <h3 className="px-4 text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">
-              {section.title}
-            </h3>
-            <div className="space-y-1">
-              {section.items.map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  end={item.path === '/dashboard'}
-                  className={({ isActive }) => 
-                    `flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 ${isActive ? activeClass : inactiveClass}`
-                  }
-                >
-                  {item.icon}
-                  {item.label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
 
-      <div className="p-4 border-t border-slate-200 dark:border-slate-800">
-        <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Nodes: Online</span>
-          </div>
-          <p className="text-[9px] font-medium text-slate-400">Secure Protocol v2.4.0</p>
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-screen sticky top-0 flex flex-col hidden lg:flex">
+        <div className="p-3 sm:p-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center">
+              <ShieldCheck className="text-white sm:w-5 sm:h-5" size={16} />
+            </div>
+          <span className="text-sm sm:text-base font-bold tracking-tight dark:text-white uppercase truncate">METACRM</span>
         </div>
-      </div>
-    </aside>
+        
+        {/* Container for links with the new beautiful custom scrollbar */}
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 sm:space-y-6 custom-scrollbar">
+          {sections.map((section, idx) => (
+            <div key={idx}>
+              <h3 className="px-3 sm:px-4 text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">
+                {section.title}
+              </h3>
+              <div className="space-y-1">
+                {section.items.map((item) => (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    end={item.path === '/dashboard'}
+                    className={({ isActive }) => 
+                      `flex items-center gap-2 px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold transition-all duration-200 ${isActive ? activeClass : inactiveClass}`
+                    }
+                  >
+                    <span className="shrink-0">{React.cloneElement(item.icon as React.ReactElement<any>, { size: 16 })}</span>
+                    <span className="truncate">{item.label}</span>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="p-3 sm:p-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Nodes: Online</span>
+            </div>
+            <p className="text-[9px] font-medium text-slate-400">Secure Protocol v2.4.0</p>
+          </div>
+        </div>
+      </aside>
+
+      {/* Mobile Sidebar */}
+      <aside className={`fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-50 flex flex-col lg:hidden transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-3 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
+              <ShieldCheck className="text-white" size={16} />
+            </div>
+            <span className="text-sm font-bold tracking-tight dark:text-white uppercase truncate">METACRM</span>
+          </div>
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+          >
+            <X size={18} />
+          </button>
+        </div>
+        
+        <div className="flex-1 overflow-y-auto p-3 space-y-3 custom-scrollbar">
+          {sections.map((section, idx) => (
+            <div key={idx}>
+              <h3 className="px-3 text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">
+                {section.title}
+              </h3>
+              <div className="space-y-1">
+                {section.items.map((item) => (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    end={item.path === '/dashboard'}
+                    onClick={handleNavClick}
+                    className={({ isActive }) => 
+                      `flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-200 ${isActive ? activeClass : inactiveClass}`
+                    }
+                  >
+                    <span className="shrink-0">{React.cloneElement(item.icon as React.ReactElement<any>, { size: 16 })}</span>
+                    <span className="truncate">{item.label}</span>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="p-3 border-t border-slate-200 dark:border-slate-800">
+          <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Nodes: Online</span>
+            </div>
+            <p className="text-[9px] font-medium text-slate-400">Secure Protocol v2.4.0</p>
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
 

@@ -29,49 +29,49 @@ const Wallet: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-2xl font-bold dark:text-white">Merchant Wallet</h1>
-          <p className="text-slate-500 text-sm">Manage your settled balances and payouts.</p>
+          <h1 className="text-xl sm:text-2xl font-bold dark:text-white">Merchant Wallet</h1>
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">Manage your settled balances and payouts.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg text-sm font-bold hover:opacity-90 transition-all">
-            <ArrowDownRight size={18} /> Withdraw
+        <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto">
+          <button className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg text-xs sm:text-sm font-bold hover:opacity-90 transition-all flex-1 md:flex-initial justify-center">
+            <ArrowDownRight size={16} className="sm:w-[18px] sm:h-[18px]" /> Withdraw
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary-dark transition-all">
-            <Plus size={18} /> Top Up Gas
+          <button className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-primary text-white rounded-lg text-xs sm:text-sm font-bold hover:bg-primary-dark transition-all flex-1 md:flex-initial justify-center">
+            <Plus size={16} className="sm:w-[18px] sm:h-[18px]" /> Top Up Gas
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {balances.map((item, idx) => (
-          <div key={idx} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 relative overflow-hidden group shadow-sm">
+          <div key={idx} className="bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 relative overflow-hidden group shadow-sm">
             <div className={`absolute top-0 right-0 w-24 h-24 ${item.color} opacity-[0.03] group-hover:opacity-[0.07] transition-opacity -mr-8 -mt-8 rounded-full`}></div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white ${item.color}`}>
-                <CreditCard size={20} />
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white ${item.color}`}>
+                <CreditCard size={16} className="sm:w-5 sm:h-5" />
               </div>
               <div>
-                <h3 className="font-bold dark:text-white">{item.currency}</h3>
+                <h3 className="font-bold dark:text-white text-sm sm:text-base">{item.currency}</h3>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{item.chain} Network</span>
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-2xl font-bold dark:text-white">{item.amount}</p>
-              <p className="text-sm text-slate-500">{item.value}</p>
+              <p className="text-xl sm:text-2xl font-bold dark:text-white">{item.amount}</p>
+              <p className="text-xs sm:text-sm text-slate-500">{item.value}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Network Deposit Addresses */}
-      <div className="space-y-4">
-         <h2 className="text-xl font-bold dark:text-white">Network Deposit Addresses</h2>
-         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="space-y-3 sm:space-y-4">
+         <h2 className="text-lg sm:text-xl font-bold dark:text-white">Network Deposit Addresses</h2>
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {balances.filter(b => b.currency === 'USDT').map((item, idx) => (
-               <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+               <div key={idx} className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 sm:space-y-4">
                   <div className="flex items-center justify-between">
                      <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full ${item.color} bg-opacity-10 ${item.color.replace('bg-', 'text-')}`}>
                         USDT {item.chain}

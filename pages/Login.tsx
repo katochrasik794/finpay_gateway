@@ -17,30 +17,30 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-3 sm:p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <ShieldCheck className="text-white" size={24} />
-            </div>
-            <span className="text-2xl font-bold text-slate-900">METACRM</span>
+        <div className="text-center mb-6 sm:mb-8">
+          <Link to="/" className="inline-flex items-center gap-2 mb-4 sm:mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center">
+                <ShieldCheck className="text-white sm:w-6 sm:h-6" size={20} />
+              </div>
+            <span className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">METACRM</span>
           </Link>
-          <h1 className="text-2xl font-bold text-slate-900">Welcome Back</h1>
-          <p className="text-slate-500 mt-2">Log in to your merchant portal</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Welcome Back</h1>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Log in to your merchant portal</p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 border border-slate-100">
-          <form onSubmit={handleLogin} className="space-y-5">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 p-5 sm:p-6 md:p-8 border border-slate-100 dark:border-slate-800">
+          <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Email Address</label>
+              <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                 <input 
                   type="email" 
                   defaultValue="merchant@metacrm.shop"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-sm sm:text-base dark:text-white"
                   placeholder="name@company.com"
                 />
               </div>
@@ -48,8 +48,8 @@ const Login: React.FC = () => {
             
             <div>
               <div className="flex justify-between mb-1.5">
-                <label className="block text-sm font-medium text-slate-700">Password</label>
-                <button type="button" className="text-sm font-semibold text-primary hover:text-primary-dark">Forgot?</button>
+                <label className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
+                <button type="button" className="text-xs sm:text-sm font-semibold text-primary hover:text-primary-dark">Forgot?</button>
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
@@ -57,7 +57,7 @@ const Login: React.FC = () => {
                   type="password" 
                   defaultValue="••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all text-sm sm:text-base dark:text-white"
                   placeholder="Your secure password"
                 />
               </div>
@@ -66,27 +66,27 @@ const Login: React.FC = () => {
             <button 
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+              className="w-full py-3 sm:py-3.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20 text-sm sm:text-base"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
               ) : (
-                <>Sign In <ArrowRight size={20} /></>
+                <>Sign In <ArrowRight size={18} className="sm:w-5 sm:h-5" /></>
               )}
             </button>
           </form>
 
-          <div className="mt-8 flex items-center gap-4">
-            <div className="flex-1 h-px bg-slate-100"></div>
-            <span className="text-xs font-medium text-slate-400 uppercase tracking-widest">Or Continue With</span>
-            <div className="flex-1 h-px bg-slate-100"></div>
+          <div className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4">
+            <div className="flex-1 h-px bg-slate-100 dark:bg-slate-800"></div>
+            <span className="text-[10px] sm:text-xs font-medium text-slate-400 uppercase tracking-widest">Or Continue With</span>
+            <div className="flex-1 h-px bg-slate-100 dark:bg-slate-800"></div>
           </div>
 
-          <div className="mt-6 flex gap-4">
-            <button className="flex-1 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-              <Github size={20} /> Github
+          <div className="mt-4 sm:mt-6 flex gap-3 sm:gap-4">
+            <button className="flex-1 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm dark:text-white">
+              <Github size={18} className="sm:w-5 sm:h-5" /> Github
             </button>
-            <button className="flex-1 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
+            <button className="flex-1 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm dark:text-white">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -98,7 +98,7 @@ const Login: React.FC = () => {
           </div>
         </div>
         
-        <p className="mt-8 text-center text-slate-500 text-sm">
+        <p className="mt-6 sm:mt-8 text-center text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
           Don't have an account? <Link to="/register" className="text-primary font-semibold hover:underline">Request Invite</Link>
         </p>
       </div>
